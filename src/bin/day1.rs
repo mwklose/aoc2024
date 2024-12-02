@@ -23,5 +23,12 @@ fn main() {
         .zip(rhs_vec.iter())
         .fold(0, |acc, (l, r)| acc + (l - r).abs());
 
-    println!("{}", final_result)
+    println!("{}", final_result);
+
+    let part_1b = lhs_vec
+        .iter()
+        .map(|x| x * rhs_vec.iter().filter(|y| *y == x).count() as i64)
+        .fold(0, |acc, l| acc + l);
+
+    println!("{}", part_1b);
 }
